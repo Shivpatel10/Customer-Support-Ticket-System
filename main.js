@@ -46,8 +46,6 @@ function displayTickets(tickets) {
     const Details = document.createElement('div');
         Details.textContent = `Issue Details: ${ticket.body}`;
             ticketItem.appendChild(Details); //appending the created item
-
-    ticketContainer.appendChild(ticketItem); // to combine the items was just appended seperately
     });
 }
 
