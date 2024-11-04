@@ -1,5 +1,6 @@
 // Task 1: Setup HTML Structure for the Ticket System
 
+
 // Task 2: Fetch Tickets Using Async/Await and Handle Errors
 async function fetchUnresolvedTicketsAPI() {
     try {
@@ -16,10 +17,38 @@ async function fetchUnresolvedTicketsAPI() {
         }
         displayTickets(ticketsUnresolved); // calls displaytickets so it can display when the function is used
 
-    } catch (error) {
-        // Display the error message in the error message section
+    } catch (error) {  // Display the error message in the error message section
         document.getElementById('errorMessage').textContent = error.message;
         console.error('Error:', error.message);
     }
 }
+
+// Task 3: Display Tickets Dynamically on the Page
+function displayTickets(tickets) {
+    const ticketContainer = document.getElementById('ticketContainer');
+
+    tickets.forEach(ticket => {
+        const ticketItem = document.createElement('div');
+
+    // Creating elements for each piece of info
+    const ticketID = document.createElement('div');
+        ticketID.textContent = `Ticket ID: ${ticket.id}`;
+            ticketItem.appendChild(ticketID); //appending the created item
+
+    const customerName = document.createElement('div');
+        customerName.textContent = `Customer Name: User ${ticket.userId}`;
+            ticketItem.appendChild(customerName); //appending the created item
+
+    const issueDescription = document.createElement('div');
+        issueDescription.textContent = `Issue Description: ${ticket.title}`;
+            ticketItem.appendChild(issueDescription); //appending the created item
+
+    const Details = document.createElement('div');
+        Details.textContent = `Issue Details: ${ticket.body}`;
+            ticketItem.appendChild(Details); //appending the created item
+
+    ticketContainer.appendChild(ticketItem); // to combine the items was just appended seperately
+    });
+}
+
 fetchUnresolvedTicketsAPI(); // Call the function to fetch tickets
