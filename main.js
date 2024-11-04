@@ -50,3 +50,9 @@ function displayTickets(tickets) {
 }
 
 fetchUnresolvedTicketsAPI(); // Call the function to fetch tickets
+
+
+// Task 4: Use finally to Ensure Cleanup
+ if (ticketContainer.innerHTML === 'Fetching support tickets...') {
+    ticketContainer.innerHTML = 'No tickets fetched.'; // Used as an update if still showing loading message
+ };
